@@ -47,9 +47,6 @@ jobs:
         export PATH=${HOME}/Library/Python/3.8/bin:${HOME}/Library/Python/3.9/bin:${HOME}/.local/bin:${PATH}
         scan-build-11 -sarif -o reports "meson build && ninja -C build"
 
-    - name: Move reports
-      run: mv reports/*/*.sarif reports/
-
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v1
       with:
